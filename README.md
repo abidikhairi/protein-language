@@ -67,6 +67,16 @@ Analyized species: `[homosapiens, ecoli, mouse, viruses]`.
   <img src="figures/k6/rare_words_distribution.png" alt="Image 3" width="30%">
 </div>
 
+### Missing words distributon
+<div align="center">
+  <img src="figures/k2/missing_words_distribution.png" alt="Image 1" width="30%">
+  <img src="figures/k3/missing_words_distribution.png" alt="Image 2" width="30%">
+  <img src="figures/k4/missing_words_distribution.png" alt="Image 3" width="30%">
+  <img src="figures/k5/missing_words_distribution.png" alt="Image 3" width="30%">
+  <img src="figures/k6/missing_words_distribution.png" alt="Image 3" width="30%">
+</div>
+
+
 ### Mutation analysis on homosapiens
 
 Number of analyzed protein sequences is 5039 sequences, spanning 31195 mutations.
