@@ -86,3 +86,11 @@ plot-rare-words:
 	@python python/rare_words_distribution.py --kmer 4
 	@python python/rare_words_distribution.py --kmer 5
 	@python python/rare_words_distribution.py --kmer 6
+
+plot-missing-words:
+	@echo "Plotting missing words analysis for all species..."
+	@python python/missing_words_distribution.py --kmer 2
+	@python python/missing_words_distribution.py --kmer 3
+	@python python/missing_words_distribution.py --kmer 4
+	@python python/missing_words_distribution.py --kmer 5
+	@python python/missing_words_distribution.py --kmer 6
