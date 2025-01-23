@@ -67,3 +67,12 @@ Analyized species: `[homosapiens, ecoli, mouse, viruses]`.
   <img src="figures/k6/rare_words_distribution.png" alt="Image 3" width="30%">
 </div>
 
+### Mutation analysis on homosapiens
+
+Number of analyzed protein sequences is 5039 sequences, spanning 31195 mutations.
+
+We found that, when a mutation occurs it will change to a more frequent word.
+
+- $k = 2$: 66.06% of cases when the mutation coverage is higher than the word coverage.
+- $k = 3$: 62.54%
+- $k = 3$: 57.56%
