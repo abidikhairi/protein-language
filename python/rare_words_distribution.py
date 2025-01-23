@@ -52,7 +52,7 @@ def main(args):
     )
 
     fig.write_image(f"figures/k{kmer}/rare_words_distribution.png", format="png", engine="kaleido", scale=5)
-
+    data.to_csv(f"data/output/k{kmer}_rare_words_distribution.csv", index=False)
 
 
 if __name__ == '__main__':
