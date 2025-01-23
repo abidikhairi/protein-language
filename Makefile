@@ -1,4 +1,4 @@
-.PHONY: run-frequency run-coverage run-mutation plot-frequencies plot-rare-words
+.PHONY: run-frequency run-coverage run-mutation plot-frequencies plot-rare-words plot-missing-words run-entropy-human run-entropy-ecoli run-entropy-mouse run-entropy-viruses run-entropy
 
 run-frequency:
 	@echo "Running frequency analysis for homosapiens..."
@@ -94,3 +94,41 @@ plot-missing-words:
 	@python python/missing_words_distribution.py --kmer 4
 	@python python/missing_words_distribution.py --kmer 5
 	@python python/missing_words_distribution.py --kmer 6
+
+run-entropy-human:
+	@echo "Running entropy analysis for homosapiens..."
+	@mix entropy data/output/homosapiens/frequency/k2.csv 2 word
+	@mix entropy data/output/homosapiens/frequency/k3.csv 3 word
+	@mix entropy data/output/homosapiens/frequency/k4.csv 4 word
+	@mix entropy data/output/homosapiens/frequency/k5.csv 5 word
+	@mix entropy data/output/homosapiens/frequency/k6.csv 6 word
+
+run-entropy-ecoli:
+	@echo "Running entropy analysis for ecoli..."
+	@mix entropy data/output/ecoli/frequency/k2.csv 2 word
+	@mix entropy data/output/ecoli/frequency/k3.csv 3 word
+	@mix entropy data/output/ecoli/frequency/k4.csv 4 word
+	@mix entropy data/output/ecoli/frequency/k5.csv 5 word
+	@mix entropy data/output/ecoli/frequency/k6.csv 6 word
+
+run-entropy-mouse:
+	@echo "Running entropy analysis for mouse..."
+	@mix entropy data/output/mouse/frequency/k2.csv 2 word
+	@mix entropy data/output/mouse/frequency/k3.csv 3 word
+	@mix entropy data/output/mouse/frequency/k4.csv 4 word
+	@mix entropy data/output/mouse/frequency/k5.csv 5 word
+	@mix entropy data/output/mouse/frequency/k6.csv 6 word
+
+run-entropy-viruses:
+	@echo "Running entropy analysis for viruses..."
+	@mix entropy data/output/viruses/frequency/k2.csv 2 word
+	@mix entropy data/output/viruses/frequency/k3.csv 3 word
+	@mix entropy data/output/viruses/frequency/k4.csv 4 word
+	@mix entropy data/output/viruses/frequency/k5.csv 5 word
+	@mix entropy data/output/viruses/frequency/k6.csv 6 word
+
+run-entropy:
+	@make run-entropy-human
+	@make run-entropy-ecoli
+	@make run-entropy-mouse
+	@make run-entropy-viruses
