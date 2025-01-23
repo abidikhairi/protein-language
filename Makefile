@@ -1,0 +1,88 @@
+.PHONY: run-frequency run-coverage run-mutation plot-frequencies plot-rare-words
+
+run-frequency:
+	@echo "Running frequency analysis for homosapiens..."
+	@mix wordcount data/uniprot-sequences/homosapiens.csv , 1 2 data/output/homosapiens/frequency/k2.csv frequency
+	@mix wordcount data/uniprot-sequences/homosapiens.csv , 1 3 data/output/homosapiens/frequency/k3.csv frequency
+	@mix wordcount data/uniprot-sequences/homosapiens.csv , 1 4 data/output/homosapiens/frequency/k4.csv frequency
+	@mix wordcount data/uniprot-sequences/homosapiens.csv , 1 5 data/output/homosapiens/frequency/k5.csv frequency
+	@mix wordcount data/uniprot-sequences/homosapiens.csv , 1 6 data/output/homosapiens/frequency/k6.csv frequency
+
+	@echo "Running frequency analysis for ecoli..."
+	@mix wordcount data/uniprot-sequences/ecoli.csv , 1 2 data/output/ecoli/frequency/k2.csv frequency
+	@mix wordcount data/uniprot-sequences/ecoli.csv , 1 3 data/output/ecoli/frequency/k3.csv frequency
+	@mix wordcount data/uniprot-sequences/ecoli.csv , 1 4 data/output/ecoli/frequency/k4.csv frequency
+	@mix wordcount data/uniprot-sequences/ecoli.csv , 1 5 data/output/ecoli/frequency/k5.csv frequency
+	@mix wordcount data/uniprot-sequences/ecoli.csv , 1 6 data/output/ecoli/frequency/k6.csv frequency
+
+	@echo "Running frequency analysis for mouse..."
+	@mix wordcount data/uniprot-sequences/mouse.csv , 1 2 data/output/mouse/frequency/k2.csv frequency
+	@mix wordcount data/uniprot-sequences/mouse.csv , 1 3 data/output/mouse/frequency/k3.csv frequency
+	@mix wordcount data/uniprot-sequences/mouse.csv , 1 4 data/output/mouse/frequency/k4.csv frequency
+	@mix wordcount data/uniprot-sequences/mouse.csv , 1 5 data/output/mouse/frequency/k5.csv frequency
+	@mix wordcount data/uniprot-sequences/mouse.csv , 1 6 data/output/mouse/frequency/k6.csv frequency
+
+	@echo "Running frequency analysis for viruses..."
+	@mix wordcount data/uniprot-sequences/viruses.csv , 1 2 data/output/viruses/frequency/k2.csv frequency
+	@mix wordcount data/uniprot-sequences/viruses.csv , 1 3 data/output/viruses/frequency/k3.csv frequency
+	@mix wordcount data/uniprot-sequences/viruses.csv , 1 4 data/output/viruses/frequency/k4.csv frequency
+	@mix wordcount data/uniprot-sequences/viruses.csv , 1 5 data/output/viruses/frequency/k5.csv frequency
+	@mix wordcount data/uniprot-sequences/viruses.csv , 1 6 data/output/viruses/frequency/k6.csv frequency
+
+
+run-coverage:
+	@echo "Running coverage analysis for homosapiens..."
+	@mix wordcount data/uniprot-sequences/homosapiens.csv , 1 2 data/output/homosapiens/coverage/k2.csv coverage
+	@mix wordcount data/uniprot-sequences/homosapiens.csv , 1 3 data/output/homosapiens/coverage/k3.csv coverage
+	@mix wordcount data/uniprot-sequences/homosapiens.csv , 1 4 data/output/homosapiens/coverage/k4.csv coverage
+	@mix wordcount data/uniprot-sequences/homosapiens.csv , 1 5 data/output/homosapiens/coverage/k5.csv coverage
+	@mix wordcount data/uniprot-sequences/homosapiens.csv , 1 6 data/output/homosapiens/coverage/k6.csv coverage
+
+	@echo "Running coverage analysis for ecoli..."
+	@mix wordcount data/uniprot-sequences/ecoli.csv , 1 2 data/output/ecoli/coverage/k2.csv coverage
+	@mix wordcount data/uniprot-sequences/ecoli.csv , 1 3 data/output/ecoli/coverage/k3.csv coverage
+	@mix wordcount data/uniprot-sequences/ecoli.csv , 1 4 data/output/ecoli/coverage/k4.csv coverage
+	@mix wordcount data/uniprot-sequences/ecoli.csv , 1 5 data/output/ecoli/coverage/k5.csv coverage
+	@mix wordcount data/uniprot-sequences/ecoli.csv , 1 6 data/output/ecoli/coverage/k6.csv coverage
+
+	@echo "Running coverage analysis for mouse..."
+	@mix wordcount data/uniprot-sequences/mouse.csv , 1 2 data/output/mouse/coverage/k2.csv coverage
+	@mix wordcount data/uniprot-sequences/mouse.csv , 1 3 data/output/mouse/coverage/k3.csv coverage
+	@mix wordcount data/uniprot-sequences/mouse.csv , 1 4 data/output/mouse/coverage/k4.csv coverage
+	@mix wordcount data/uniprot-sequences/mouse.csv , 1 5 data/output/mouse/coverage/k5.csv coverage
+	@mix wordcount data/uniprot-sequences/mouse.csv , 1 6 data/output/mouse/coverage/k6.csv coverage
+
+	@echo "Running coverage analysis for viruses..."
+	@mix wordcount data/uniprot-sequences/viruses.csv , 1 2 data/output/viruses/coverage/k2.csv coverage
+	@mix wordcount data/uniprot-sequences/viruses.csv , 1 3 data/output/viruses/coverage/k3.csv coverage
+	@mix wordcount data/uniprot-sequences/viruses.csv , 1 4 data/output/viruses/coverage/k4.csv coverage
+	@mix wordcount data/uniprot-sequences/viruses.csv , 1 5 data/output/viruses/coverage/k5.csv coverage
+	@mix wordcount data/uniprot-sequences/viruses.csv , 1 6 data/output/viruses/coverage/k6.csv coverage
+
+run-mutation:
+	@echo "Running mutation analysis for homosapiens..."
+	@mix mutation data/human_mutagen.csv 2 data/output/homosapiens/mutation/k2.csv
+	@mix mutation data/human_mutagen.csv 3 data/output/homosapiens/mutation/k3.csv
+	@mix mutation data/human_mutagen.csv 4 data/output/homosapiens/mutation/k4.csv
+
+plot-frequencies:
+	@echo "Plotting frequency analysis for all species..."
+	@python python/plot_frequencies.py --kmer 2 --modality coverage
+	@python python/plot_frequencies.py --kmer 3 --modality coverage
+	@python python/plot_frequencies.py --kmer 4 --modality coverage
+	@python python/plot_frequencies.py --kmer 5 --modality coverage
+	@python python/plot_frequencies.py --kmer 6 --modality coverage
+
+	@python python/plot_frequencies.py --kmer 2 --modality frequency
+	@python python/plot_frequencies.py --kmer 3 --modality frequency
+	@python python/plot_frequencies.py --kmer 4 --modality frequency
+	@python python/plot_frequencies.py --kmer 5 --modality frequency
+	@python python/plot_frequencies.py --kmer 6 --modality frequency
+
+plot-rare-words:
+	@echo "Plotting rare words analysis for all species..."
+	@python python/rare_words_distribution.py --kmer 2
+	@python python/rare_words_distribution.py --kmer 3
+	@python python/rare_words_distribution.py --kmer 4
+	@python python/rare_words_distribution.py --kmer 5
+	@python python/rare_words_distribution.py --kmer 6
