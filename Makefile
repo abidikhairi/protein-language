@@ -1,4 +1,4 @@
-.PHONY: run-frequency run-coverage run-mutation plot-frequencies plot-rare-words plot-missing-words run-entropy-human run-entropy-ecoli run-entropy-mouse run-entropy-viruses run-entropy
+.PHONY: run-frequency run-coverage run-mutation plot-frequencies plot-rare-words plot-missing-words run-entropy-human run-entropy-ecoli run-entropy-mouse run-entropy-viruses run-entropy run-merge
 
 run-frequency:
 	@echo "Running frequency analysis for homosapiens..."
@@ -132,3 +132,25 @@ run-entropy:
 	@make run-entropy-ecoli
 	@make run-entropy-mouse
 	@make run-entropy-viruses
+
+run-merge:
+	@echo "Merge data into one file..."
+	@mix merge homosapiens 2
+	@mix merge ecoli 2
+	@mix merge mouse 2
+	@mix merge viruses 2
+
+	@mix merge homosapiens 3
+	@mix merge ecoli 3
+	@mix merge mouse 3
+	@mix merge viruses 3
+
+	@mix merge homosapiens 4
+	@mix merge ecoli 4
+	@mix merge mouse 4
+	@mix merge viruses 4
+	
+	@mix merge homosapiens 5
+	@mix merge ecoli 5
+	@mix merge mouse 5
+	@mix merge viruses 5
