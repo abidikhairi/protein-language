@@ -29,6 +29,12 @@ run-frequency:
 	@mix wordcount data/uniprot-sequences/viruses.csv , 1 5 data/output/viruses/frequency/k5.csv frequency
 	@mix wordcount data/uniprot-sequences/viruses.csv , 1 6 data/output/viruses/frequency/k6.csv frequency
 
+	@echo "Running frequency analysis for swissprot..."
+	@mix wordcount data/uniprot-sequences/all.csv , 1 2 data/output/all/frequency/k2.csv frequency
+	@mix wordcount data/uniprot-sequences/all.csv , 1 3 data/output/all/frequency/k3.csv frequency
+	@mix wordcount data/uniprot-sequences/all.csv , 1 4 data/output/all/frequency/k4.csv frequency
+	@mix wordcount data/uniprot-sequences/all.csv , 1 5 data/output/all/frequency/k5.csv frequency
+	@mix wordcount data/uniprot-sequences/all.csv , 1 6 data/output/all/frequency/k6.csv frequency
 
 run-coverage:
 	@echo "Running coverage analysis for homosapiens..."
@@ -58,6 +64,13 @@ run-coverage:
 	@mix wordcount data/uniprot-sequences/viruses.csv , 1 4 data/output/viruses/coverage/k4.csv coverage
 	@mix wordcount data/uniprot-sequences/viruses.csv , 1 5 data/output/viruses/coverage/k5.csv coverage
 	@mix wordcount data/uniprot-sequences/viruses.csv , 1 6 data/output/viruses/coverage/k6.csv coverage
+
+	@echo "Running coverage analysis for swissprot..."
+	@mix wordcount data/uniprot-sequences/all.csv , 1 2 data/output/all/coverage/k2.csv coverage
+	@mix wordcount data/uniprot-sequences/all.csv , 1 3 data/output/all/coverage/k3.csv coverage
+	@mix wordcount data/uniprot-sequences/all.csv , 1 4 data/output/all/coverage/k4.csv coverage
+	@mix wordcount data/uniprot-sequences/all.csv , 1 5 data/output/all/coverage/k5.csv coverage
+	@mix wordcount data/uniprot-sequences/all.csv , 1 6 data/output/all/coverage/k6.csv coverage
 
 run-mutation:
 	@echo "Running mutation analysis for homosapiens..."
